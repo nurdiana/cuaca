@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7f2">
+    <meta name="description" content="Cek prakiraan BMKG untuk membantu merencanakan perjalanan pulang kantor sore ini.">
+    <title>UjanGak — Cek cuaca pulang kantor</title>
+    <link rel="preconnect" href="https://api.bmkg.go.id">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="UjanGak beranda">
+        <span class="brand-mark" aria-hidden="true">↗</span>
+        <span>Ujan<span class="brand-accent">Gak</span></span>
+      </a>
+      <span class="topbar-note"><span class="live-dot"></span> Teman perjalanan pulangmu</span>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <h1 id="page-title">Pulang kerja nanti,<br><span>turun ujan gak?</span></h1>
+        <p class="intro-copy">Cek perkiraan cuaca di titik berangkatmu sebelum pulang kerja. Biar perjalanan lebih siap.</p>
+      </section>
+
+      <div class="location-actions">
+        <button id="location-toggle" class="location-toggle" type="button" aria-expanded="false" aria-controls="search-card">
+          <span aria-hidden="true">⌖</span> Ganti titik berangkat
+        </button>
+      </div>
+
+      <section id="search-card" class="search-card" aria-label="Pilih titik berangkat" hidden>
+        <form id="location-form">
+          <label for="adm4">Kode wilayah titik berangkat (ADM4)</label>
+          <div class="search-row">
+            <div class="input-wrap">
+              <span class="pin-icon" aria-hidden="true">⌖</span>
+              <input id="adm4" name="adm4" type="text" inputmode="numeric" autocomplete="off"
+                pattern="[0-9]{2}\.[0-9]{2}\.[0-9]{2}\.[0-9]{4}"
+                aria-describedby="location-help" placeholder="Contoh: 31.73.05.1005" required>
+            </div>
+            <button id="check-button" type="submit">
+              <span class="button-label">Terapkan</span><span aria-hidden="true">→</span>
+            </button>
+          </div>
+          <p id="location-help" class="field-help">Masukkan kode ADM4 dengan format 00.00.00.0000.</p>
+        </form>
+      </section>
+
+      <section id="result" class="result-section" aria-live="polite" aria-busy="false"></section>
+
+      <section class="how-it-works" aria-label="Informasi perkiraan">
+        <span class="info-icon" aria-hidden="true">i</span>
+        <p><strong>Bagaimana perkiraannya?</strong> Daftar menampilkan prakiraan hari ini, termasuk sebelum pukul 17.30. Penilaian perlu tidaknya membawa payung dihitung dari pukul 17.30 ke atas. Prakiraan diperbarui BMKG dua kali sehari.</p>
+      </section>
+    </main>
+
+    <footer>
+      <span>Data cuaca dari <a href="https://data.bmkg.go.id/prakiraan-cuaca/" target="_blank" rel="noopener noreferrer">BMKG</a></span>
+      <span class="footer-divider" aria-hidden="true">·</span>
+      <span>Prakiraan, bukan jaminan cuaca</span>
+    </footer>
+  </body>
+</html>
