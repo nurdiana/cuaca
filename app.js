@@ -1,4 +1,4 @@
-const API_URL = "https://bmkg-proxy.nurdianasekolah.workers.dev?adm4=";
+const API_URL = "https://bmkg-proxy-six.vercel.app/api/cuaca?adm4=";
 const DEFAULT_LOCATION = "31.73.05.1005";
 const DEPARTURE_TIME = "17:30";
 const RAIN_CODES = new Set([60, 61, 63, 80, 95, 97]);
